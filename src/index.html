@@ -75,6 +75,12 @@
                     </a>
                 </li>
                 <li class="nav-title">Theme</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="test.html">
+                        <i class="nav-icon icon-eyeglass"></i> Testing here</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="colors.html">
                         <i class="nav-icon icon-drop"></i> Colors</a>
@@ -261,10 +267,11 @@
 
     <!-- EPC main container-->
     <main class="main">
-        <!-- to do move this heading into indivual web page components-->
-        <div class="breadcrumb">
-            <div class="header">Adarsh Header</div>
-        </div>
+        <!-- to do move this heading into individual web page components-->
+        <ol class="breadcrumb" id="pagePath">
+
+        </ol>
+
         <div class="container-fluid">
             <div id="ui-view"></div>
         </div>
@@ -292,8 +299,20 @@
     $('#ui-view').ajaxLoad();
     $(document).ajaxComplete(function () {
         Pace.restart();
+
         const currentDate = new Date();
         document.getElementById('copyRightYear').innerHTML = '&copy; ' + currentDate.getFullYear();
+
+        document.getElementById('pagePath').innerHTML = '<li class="breadcrumb-item">Dashboard</li>';
+        const path = window.location.hash;
+        const pathArray = path.split('/');
+
+        pathArray.map(route => {
+            if (route !== '#main.html') {
+                const node = `<li class="breadcrumb-item active">${route.replace('.html', '').replace('#', '')}</li>`;
+                $('#pagePath').append(node);
+            }
+        });
     });
 </script>
 </body>
