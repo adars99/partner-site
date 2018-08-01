@@ -274,7 +274,7 @@
 <footer class="app-footer">
     <div>
         <a href="https://www.elliemae.com">EllieMae Partner Connect</a>
-        <span>&copy; 2018 </span>
+        <span id="copyRightYear"></span>
     </div>
     <div class="ml-auto">
         <span>Powered by</span>
@@ -291,7 +291,9 @@
 <script>
     $('#ui-view').ajaxLoad();
     $(document).ajaxComplete(function () {
-        Pace.restart()
+        Pace.restart();
+        const currentDate = new Date();
+        document.getElementById('copyRightYear').innerHTML = '&copy; ' + currentDate.getFullYear();
     });
 </script>
 </body>
