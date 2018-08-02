@@ -14168,4 +14168,8 @@ body {
   breakpoint-lg: 992px;
   breakpoint-xl: 1200px;
 }
+
+.codeClass {
+  background-color: gainsboro;
+}
 /*# sourceMappingURL=style.css.map */
