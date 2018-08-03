@@ -144,13 +144,14 @@
 
     <div class="card">
         <div class="card-header">
-            <i class="icon-book-open"></i> Code
+            <i class="icon-book-open"></i>
+            Code
         </div>
         <div class="card-body">
             <p>Here is the code simple sfdaxasdfasfasfadfa</p>
 
             <div class="col-12">
-                <ul class="nav nav-tabs" role="tablist">
+                <ul class="nav nav-tabs" role="tablist" style="position: relative">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#home3" role="tab" aria-controls="home">
                             HTML</a>
@@ -163,21 +164,25 @@
                         <a class="nav-link" data-toggle="tab" href="#messages3" role="tab" aria-controls="messages">
                             JavaScript</a>
                     </li>
+
+                    <label class="switch switch-pill switch-primary navBtnRight">
+                        <input class="switch-input" type="checkbox" id="codeStyleSwitch"
+                               onchange="codeStyleSwitch()" checked />
+                        <span class="switch-slider"></span>
+                    </label>
+
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="home3" role="tabpanel">
                         <pre class="prettyprint lang-html" style="border: none">
-                            <code>
 &lt;div class="container" style="background-color: red" onclick="option()"&gt;
     &lt;p&gt;Sample text here...&lt;/p&gt;
     &lt;p&gt;And another line of sample text here...&lt;/p&gt;
 &lt;/div&gt;
-                            </code>
                         </pre>
                     </div>
                     <div class="tab-pane" id="profile3" role="tabpanel">
                         <pre class="prettyprint lang-css" style="border: none">
-                            <code>
 .uploadIconLarge {
     font-size: 45px;
     color: darkgrey;
@@ -193,12 +198,10 @@
     font-weight: normal;
     margin: 0;
 }
-                            </code>
                         </pre>
                     </div>
                     <div class="tab-pane" id="messages3" role="tabpanel">
                         <pre class="prettyprint lang-javascript" style="border: none">
-                            <code>
 function listingNameSort() {
     productList.sort((a, b) => {
         if (a.listingName < b.listingName)
@@ -280,7 +283,6 @@ function deployFileToService() {
         notifUserWithAlert('#errorNotif');
     }
 }
-                            </code>
                         </pre>
                     </div>
                 </div>
@@ -425,4 +427,55 @@ function deployFileToService() {
         </div>
     </div>
 
+    <div class="card">
+        <div class="card-header">
+            <i class="icon-ghost"></i>
+            Hybird Example
+            <small>some small text here <code>&lt;section&gt;</code></small>
+
+            <div class="card-header-actions">
+                <span class="badge badge-primary">NEW</span>
+                <a class="badge badge-danger" href="#">Danger</a>
+                <button class="badge badge-info" href="#" data-toggle="modal" data-target="#myModal">Open Modal</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <p>Hybird example herjeehrehrehrherhehrehrehrhehrehrehrherherh</p>
+            <p>Hybird example herjeehrehrehrherhehrehrehrhehrehrehrherherh</p>
+
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        header herehrehrehr
+                    </div>
+
+                    <div class="panel-body">
+                        afsafafasfasf
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
