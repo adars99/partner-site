@@ -41,7 +41,6 @@
         </div>
         <div class="card-body">
 
-
         </div>
     </div>
 
@@ -57,36 +56,17 @@
                         <a class="nav-link active" data-toggle="tab" href="#htmlBlock" role="tab" aria-controls="htmlBlock">
                             HTML</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#jsBlock" role="tab" aria-controls="jsBlock">
-                            JavaScript</a>
-                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="htmlBlock" role="tabpanel">
                         <pre class="prettyprint lang-html" style="border: none">
-&lt;div id="footerSection">&lt;/div>
+&lt;em-radio component-id="defaultradiobtn" value="" display-name="Default">&lt;/em-radio>
+&lt;em-radio component-id="focusradiobtn" value="" display-name="Hover/Focus">&lt;/em-radio>
+&lt;em-radio component-id="activeradiobtn" value="" display-name="Active" checked="true">&lt;/em-radio>
+&lt;em-radio component-id="disabledradiobtn" value="" display-name="Disabled" disabled="true">&lt;/em-radio>
+&lt;em-radio component-id="readonlyradiobtn" value="" display-name="Readonly" read-only="true">&lt;/em-radio>
+&lt;em-radio component-id="checkedreadonlyradiobtn" value="" display-name="Readonly Checked" checked="true" read-only="true">&lt;/em-radio>
                         </pre>
-                    </div>
-
-                    <div class="tab-pane" id="jsBlock" role="tabpanel">
-                        <pre class="prettyprint lang-javascript" style="border: none">
-var footerData = [
-    {'id': 'footerCancelBtn', 'displayName': 'Cancel', 'btnType': 'default', 'navigateTo' : '#/slp'},
-    {'id': 'footerNextBtn', 'displayName': 'Next', 'btnType': 'primary', 'navigateTo' : '#/order'},
-    {'id': 'footerPreviousBtn', 'displayName': 'Previous', 'btnType': 'primary', 'navigateTo' : '#/landing'},
-    {'id': 'footerSubmitBtn', 'displayName': 'Submit', 'btnType': 'primary', 'navigateTo' : '#/slp'}
-];
-
-var EMFooter = customElements.get('em-footer');
-var footerEl = new EMFooter(footerData);
-
-var containerFooter = document.getElementById('footerSection');
-if(containerFooter) {
-    containerFooter.appendChild(footerEl)
-}
-                            </pre>
                     </div>
 
                 </div>
@@ -105,42 +85,63 @@ if(containerFooter) {
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th style="border-top: none">Basic Data</th>
-                        <th style="border-top: none">Type</th>
-                        <th style="border-top: none">Property</th>
-                        <th style="border-top: none">Description (*required data)</th>
+                        <th style="border-top: none">Attribute (*required data)</th>
+                        <th style="border-top: none">Description</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <tr>
+                        <td>
+                            <span class="codeClass">
+                                <code>*component-id</code>
+                            </span>
+                        </td>
+                        <td>
+                            This is the html id of the radio button
+                        </td>
+                    </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>footerData</code>
+                                <code>value</code>
                             </span>
                         </td>
                         <td>
-                            array
+                            This is the value of the radio button
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span class="codeClass">
+                                <code>*display-name</code>
+                            </span>
                         </td>
                         <td>
-                            <div class="small text-muted">
-                                id
-                            </div>
-                            <div class="small text-muted">
-                                displayName
-                            </div>
-                            <div class="small text-muted">
-                                btnType
-                            </div>
-                            <div class="small text-muted">
-                                navigateTo
-                            </div>
+                            This is the text that will showing up for the radio button on html
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span class="codeClass">
+                                <code>disabled</code>
+                            </span>
                         </td>
                         <td>
-                            *This is footer button array. Each element represents one footer button. <code>id</code> is the id attribute of
-                            the button. <code>displayName</code> is the name of the button to be displayed on html. <code>btnType</code> is
-                            the type of button, and please view <a href="#">button page</a> for more detail. <code>navigateTo</code> contains
-                            action after button is clicked
+                            Give <code>disabled</code> <strong>true</strong> to disable the radio button
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <span class="codeClass">
+                                <code>read-only</code>
+                            </span>
+                        </td>
+                        <td>
+                            Give <code>read-only</code> <strong>true</strong> to mark the radio button read only
                         </td>
                     </tr>
 

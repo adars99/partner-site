@@ -53,38 +53,36 @@
         <div class="card-body">
             <div class="col-12">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#htmlBlock" role="tab" aria-controls="htmlBlock">
-                            HTML</a>
-                    </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#jsBlock" role="tab" aria-controls="jsBlock">
+                        <a class="nav-link active" data-toggle="tab" href="#jsBlock" role="tab" aria-controls="jsBlock">
                             JavaScript</a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="htmlBlock" role="tabpanel">
-                        <pre class="prettyprint lang-html" style="border: none">
-&lt;div id="footerSection">&lt;/div>
-                        </pre>
-                    </div>
 
-                    <div class="tab-pane" id="jsBlock" role="tabpanel">
+                    <div class="tab-pane active" id="jsBlock" role="tabpanel">
                         <pre class="prettyprint lang-javascript" style="border: none">
-var footerData = [
-    {'id': 'footerCancelBtn', 'displayName': 'Cancel', 'btnType': 'default', 'navigateTo' : '#/slp'},
-    {'id': 'footerNextBtn', 'displayName': 'Next', 'btnType': 'primary', 'navigateTo' : '#/order'},
-    {'id': 'footerPreviousBtn', 'displayName': 'Previous', 'btnType': 'primary', 'navigateTo' : '#/landing'},
-    {'id': 'footerSubmitBtn', 'displayName': 'Submit', 'btnType': 'primary', 'navigateTo' : '#/slp'}
-];
+import SpinnerService from "./spinner.js";
+var spinner = SpinnerService.getSpinnerInstance();
 
-var EMFooter = customElements.get('em-footer');
-var footerEl = new EMFooter(footerData);
-
-var containerFooter = document.getElementById('footerSection');
-if(containerFooter) {
-    containerFooter.appendChild(footerEl)
+var btnStartSpinner = document.getElementById('btnStartSpinner');
+if (htmlUtils.isElementFound(btnStartSpinner)) {
+    btnStartSpinner.addEventListener("click", function (event) {
+        spinner.start();
+        setTimeout(function () {
+            spinner.stop();
+        }, 4000);
+    });
+}
+var btnStartSpinnerCustom = document.getElementById('btnStartSpinnerCustom');
+if (htmlUtils.isElementFound(btnStartSpinnerCustom)) {
+    btnStartSpinnerCustom.addEventListener("click", function (event) {
+        spinner.start(undefined, 'Please Wait...');
+        setTimeout(function () {
+            spinner.stop();
+        }, 4000);
+    });
 }
                             </pre>
                     </div>
@@ -105,10 +103,8 @@ if(containerFooter) {
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th style="border-top: none">Basic Data</th>
-                        <th style="border-top: none">Type</th>
-                        <th style="border-top: none">Property</th>
-                        <th style="border-top: none">Description (*required data)</th>
+                        <th style="border-top: none">Parameter (*required data)</th>
+                        <th style="border-top: none">Description</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -116,34 +112,25 @@ if(containerFooter) {
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>footerData</code>
+                                <code>target</code>
                             </span>
                         </td>
                         <td>
-                            array
-                        </td>
-                        <td>
-                            <div class="small text-muted">
-                                id
-                            </div>
-                            <div class="small text-muted">
-                                displayName
-                            </div>
-                            <div class="small text-muted">
-                                btnType
-                            </div>
-                            <div class="small text-muted">
-                                navigateTo
-                            </div>
-                        </td>
-                        <td>
-                            *This is footer button array. Each element represents one footer button. <code>id</code> is the id attribute of
-                            the button. <code>displayName</code> is the name of the button to be displayed on html. <code>btnType</code> is
-                            the type of button, and please view <a href="#">button page</a> for more detail. <code>navigateTo</code> contains
-                            action after button is clicked
+                            <code>target</code> will be html element. If target is given, spinner will be append with the given target.
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>
+                            <span class="codeClass">
+                                <code>loadingMessage</code>
+                            </span>
+                        </td>
+                        <td>
+                            <code>loadingMessage</code> is the text will appear within spinner. Default message is
+                            <strong>Loading...</strong> if this parameter is empty
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
