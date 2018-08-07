@@ -66,29 +66,25 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="htmlBlock" role="tabpanel">
                         <pre class="prettyprint lang-html" style="border: none">
-&lt;div id="headerSection" class="em-container">&lt;/div>
+&lt;div id="footerSection">&lt;/div>
                         </pre>
                     </div>
 
                     <div class="tab-pane" id="jsBlock" role="tabpanel">
                         <pre class="prettyprint lang-javascript" style="border: none">
-var headerData = {
-    'orderCategory': 'Credit',
-    'orderStatus': '',
-    'providerName': 'Sharper Landing',
-    'providerLogo': '',
-    'navLinks': [
-        {'linkName': 'View Order', 'linkUrl' : '#/view-order'},
-        {'linkName': 'Manage Password', 'linkUrl' : '#/manage-password'},
-        {'linkName': 'Provider Info', 'linkUrl' : ''}
-    ]
-};
+var footerData = [
+    {'id': 'footerCancelBtn', 'displayName': 'Cancel', 'btnType': 'default', 'navigateTo' : '#/slp'},
+    {'id': 'footerNextBtn', 'displayName': 'Next', 'btnType': 'primary', 'navigateTo' : '#/order'},
+    {'id': 'footerPreviousBtn', 'displayName': 'Previous', 'btnType': 'primary', 'navigateTo' : '#/landing'},
+    {'id': 'footerSubmitBtn', 'displayName': 'Submit', 'btnType': 'primary', 'navigateTo' : '#/slp'}
+];
 
-var headerEl = new EMHeader(headerData);
+var EMFooter = customElements.get('em-footer');
+var footerEl = new EMFooter(footerData);
 
-var containerHeader = document.getElementById('headerSection');
-if(containerHeader) {
-    containerHeader.appendChild(headerEl)
+var containerFooter = document.getElementById('footerSection');
+if(containerFooter) {
+    containerFooter.appendChild(footerEl)
 }
                             </pre>
                     </div>
@@ -116,81 +112,11 @@ if(containerHeader) {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>orderCategory</code>
-                            </span>
-                        </td>
-                        <td>
-                            string
-                        </td>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            *This is the name of the header, and will be localed upper left corner of the header
-                        </td>
-                    </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>orderStatus</code>
-                            </span>
-                        </td>
-                        <td>
-                            string
-                        </td>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            This is the order status of order category, and will be localed upper right corner of the header.
-                            This data can be empty if the status is zero
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>providerName</code>
-                            </span>
-                        </td>
-                        <td>
-                            string
-                        </td>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            This is the provider name, and will be localed lower left corner of the header.
-                            This data will be replaced if provider logo is provided
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>providerLogo</code>
-                            </span>
-                        </td>
-                        <td>
-                            string (URL)
-                        </td>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            This is the provider logo. If provider logo is provided, provider name will be replace with image logo
-                            no matter name is empty or not
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>navLinks</code>
+                                <code>footerData</code>
                             </span>
                         </td>
                         <td>
@@ -198,16 +124,23 @@ if(containerHeader) {
                         </td>
                         <td>
                             <div class="small text-muted">
-                                linkName
+                                id
                             </div>
                             <div class="small text-muted">
-                                linkUrl
+                                displayName
+                            </div>
+                            <div class="small text-muted">
+                                btnType
+                            </div>
+                            <div class="small text-muted">
+                                navigateTo
                             </div>
                         </td>
                         <td>
-                            This is the navigation link array. Each element contains <code>linkName</code> and <code>linkUrl</code>,
-                            where <code>linkName</code> is the name of the navigation item and <code>linkUrl</code> is the url will be
-                            navigated to
+                            *This is footer button array. Each element represents one footer button. <code>id</code> is the id attribute of
+                            the button. <code>displayName</code> is the name of the button to be displayed on html. <code>btnType</code> is
+                            the type of button, and please view <a href="/#buttons/buttons.html">button page</a> for more detail. <code>navigateTo</code> contains action after button is
+                            clicked
                         </td>
                     </tr>
 
