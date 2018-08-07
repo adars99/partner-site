@@ -68,8 +68,6 @@
                         <pre class="prettyprint lang-html" style="border: none">
 &lt;div id="headerSection" class="em-container">&lt;/div>
                         </pre>
-
-                        <p>herherherh</p>
                     </div>
 
                     <div class="tab-pane" id="jsBlock" role="tabpanel">
@@ -86,7 +84,6 @@ var headerData = {
     ]
 };
 
-var EMHeader = customElements.get('em-header');
 var headerEl = new EMHeader(headerData);
 
 var containerHeader = document.getElementById('headerSection');
@@ -112,163 +109,105 @@ if(containerHeader) {
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th style="border-top: none">Class</th>
-                        <th style="border-top: none">HEX</th>
-                        <th style="border-top: none">Description</th>
+                        <th style="border-top: none">Basic Data</th>
+                        <th style="border-top: none">Type</th>
+                        <th style="border-top: none">Property</th>
+                        <th style="border-top: none">Description (*required data)</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>.em-ds-button</code>
+                                <code>orderCategory</code>
                             </span>
+                        </td>
+                        <td>
+                            string
                         </td>
                         <td>
                             -
                         </td>
                         <td>
-                            This is basic class for button. All button must have this class
+                            *This is the name of the header, and will be localed upper left corner of the header
                         </td>
                     </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>.em-ds-button-default</code>
+                                <code>orderStatus</code>
                             </span>
+                        </td>
+                        <td>
+                            string
                         </td>
                         <td>
                             -
                         </td>
                         <td>
-                            Class for default button
+                            This is the order status of order category, and will be localed upper right corner of the header.
+                            This data can be empty if the status is zero
                         </td>
                     </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>.em-ds-button-primary</code>
+                                <code>providerName</code>
                             </span>
                         </td>
                         <td>
-                            #2080CD <span class="badge" style="background-color: #2080CD">&nbsp;&nbsp;&nbsp;</span>
-                        </td>
-                        <td>
-                            Class for primary button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.em-ds-button-tertiary</code>
-                            </span>
+                            string
                         </td>
                         <td>
                             -
                         </td>
                         <td>
-                            Class for tertiary button
+                            This is the provider name, and will be localed lower left corner of the header.
+                            This data will be replaced if provider logo is provided
                         </td>
                     </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>.hover</code>
+                                <code>providerLogo</code>
                             </span>
                         </td>
                         <td>
-                            #1394E5 <span class="badge" style="background-color: #1394E5">&nbsp;&nbsp;&nbsp;</span>
-                        </td>
-                        <td>
-                            Showcase for hovered button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.active</code>
-                            </span>
-                        </td>
-                        <td>
-                            #006AA9 <span class="badge" style="background-color: #006AA9">&nbsp;&nbsp;&nbsp;</span>
-                        </td>
-                        <td>
-                            Show case for active button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.disabled</code>
-                            </span>
-                        </td>
-                        <td>
-                            #A9B1BE <span class="badge" style="background-color: #A9B1BE">&nbsp;&nbsp;&nbsp;</span>
-                        </td>
-                        <td>
-                            Show case for disabled button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.em-ds-button-xs</code>
-                            </span>
+                            string (URL)
                         </td>
                         <td>
                             -
                         </td>
                         <td>
-                            Class for extra small button
+                            This is the provider logo. If provider logo is provided, provider name will be replace with image logo
+                            no matter name is empty or not
                         </td>
                     </tr>
 
                     <tr>
                         <td>
                             <span class="codeClass">
-                                <code>.em-ds-button-xm</code>
+                                <code>navLinks</code>
                             </span>
                         </td>
                         <td>
-                            -
+                            array
                         </td>
                         <td>
-                            Class for small button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.em-ds-button-md</code>
-                            </span>
+                            <div class="small text-muted">
+                                linkName
+                            </div>
+                            <div class="small text-muted">
+                                linkUrl
+                            </div>
                         </td>
                         <td>
-                            -
-                        </td>
-                        <td>
-                            Class for medium button
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="codeClass">
-                                <code>.em-ds-button-lg</code>
-                            </span>
-                        </td>
-                        <td>
-                            -
-                        </td>
-                        <td>
-                            Class for large button
+                            This is the navigation link array. Each element contains <code>linkName</code> and <code>linkUrl</code>,
+                            where <code>linkName</code> is the name of the navigation item and <code>linkUrl</code> is the url will be
+                            navigated to
                         </td>
                     </tr>
 
